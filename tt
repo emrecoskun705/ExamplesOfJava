@@ -7,8 +7,7 @@
     <style>
         body {
             height: 100%;
-            margin: 100px;
-            display: flex;
+            margin: 100px 20px;
             justify-content: center;
             background-color: white;
             font-size: 16px; /* Smaller base font size */
@@ -63,20 +62,20 @@
         }
         .teleks-label {
             border: 1px solid black;
-            width: 500px; /* Width */
+            width: 500px; 
             display: block;
             margin-bottom: 2px;
             padding: 1px;
         }
-        /* Adjustments as per your request */
+        
         .inner-table td {
             border: none;
             
         }
         .inner-table td:first-child {
-            width: 1%; /* Collapse to content width */
+            width: 1%; 
             white-space: nowrap;
-            padding-right: 3px; /* Some padding to make it a bit wider than content */
+            padding-right: 3px; 
         }
 
         #swift-td, #faks-label-text{
@@ -86,7 +85,7 @@
 
         .title-text {
             font-weight: bold;
-            margin-bottom: 10px; /* Space between titles */
+            margin-bottom: 10px; 
             text-align: right;
         }
 
@@ -94,7 +93,7 @@
             width: 100%;
             height: 1px;
             background-color: black;
-            margin: 5px 0; /* Margin top and bottom to separate lines */
+            margin: 5px 0; 
         }
 
         .other-label {
@@ -106,7 +105,15 @@
             padding: 1px;
         }
 
-        .lehdar-label, .amir-label, .ref-label {
+        .lehdar-label, .ref-label {
+            border: 1px solid black;
+            width: 500px;
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .amir-label {
             border: 1px solid black;
             width: 400px;
             display: block;
@@ -114,39 +121,62 @@
             padding: 1px;
         }
 
-        .lehdar-label-half {
+        .lehdar-label-half1 {
             border: 1px solid black;
-            width: 190px; /* Reduced width for half labels */
-            display: inline-block; /* Instead of block */
+            width: 360px; 
+            display: block; 
             margin-bottom: 2px;
             padding: 1px;
-            vertical-align: top; /* To align at the top of the line */
+        }
+
+        .lehdar-label-half2 {
+            border: 1px solid black;
+            width: 230px; 
+            display: block; 
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .lehdar-label-half3 {
+            border: 1px solid black;
+            width: 120px; 
+            display: block; 
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .lehdar-label-half4 {
+            border: 1px solid black;
+            width: 310px; 
+            display: block; 
+            margin-bottom: 2px;
+            padding: 1px;
         }
 
         .referansimiz-label {
             border: 1px solid black;
-            margin-right: 4px; /* Small spacing between them */
-            padding: 1px 5px; /* Small padding around text */
+            margin-right: 4px; 
+            padding: 1px 5px; 
         }
 
         .referansimiz-label-short {
-            width: 100px; /* adjust as needed */
+            width: 100px; 
         }
 
         .referansimiz-label-tiny {
-            width: 40px; /* adjust as needed */
+            width: 40px;
         }
 
         .referansimiz-label-medium {
-            width: 150px; /* adjust as needed */
+            width: 150px;
         }
 
         .referanslari-label {
             border: 1px solid black;
-            display: block; /* Displayed as a block (full width) */
+            display: block;
             margin-bottom: 2px;
             padding: 1px;
-            width: 200px; /* Adjust width as needed */
+            width: 200px;
         }
 
         .border-right {
@@ -170,9 +200,17 @@
             border-right: 1px solid black;
         }
 
-        .amirbanka-label {
+        .amirbanka-label1 {
             border: 1px solid black;
-            width: 300px; /* Adjust width as needed */
+            width: 350px;
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .amirbanka-label2 {
+            border: 1px solid black;
+            width: 444px;
             display: block;
             margin-bottom: 2px;
             padding: 1px;
@@ -218,6 +256,8 @@
             width: 20px;
             height: 20px;
             border: 1px solid #999;
+            margin-right: 5px;
+            margin-left: 5px;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -317,7 +357,7 @@
                         </tr>
                     </table>
                     <table class='inner-table'>
-                        <!-- Added Swift, Faks and Teleks row -->
+                        
                         <tr>
                             <td id='swift-label-text'><div class='bg-color fw-bold'>Swift:</div></td>
                             <td id='swift-td'>
@@ -356,31 +396,32 @@
                         <tr>
                             <td id='lehdar'>
                                 <div class='title-text' style='text-align:left;'><div class='bg-color' style='display: inline-block;'>Lehdar</div> </div>
-                                <span class='lehdar-label'>Address Line 1</span>
-                                <span class='lehdar-label'>Address Line 2</span>
-                                <table style='width:100%; border-collapse:collapse;'>
+                                <span class='lehdar-label'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                                <span class='lehdar-label'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                                <span class='lehdar-label'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                                <table style='border-collapse:collapse;'>
                                     <tr>
                                         <td style='border: none; padding: 0; padding-right: 16px;'>
-                                            <span class='lehdar-label-half'>Address Line 3</span>
+                                            <span class='lehdar-label-half1'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
                                         </td>
                                         <td style='border: none; padding: 0;'>
-                                            <span class='lehdar-label-half'>Address Line 4</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style='border: none; padding: 0;'>
-                                            <span class='lehdar-label-half'>Address Line 5</span>
-                                        </td>
-                                        <td style='border: none; padding: 0;'>
-                                            <span class='lehdar-label-half'>Additional Address Line</span>
+                                            <span class='lehdar-label-half2'>XXXXXXXXXXXXXXXXXXXX</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style='border: none; padding: 0;'>
-                                            <!-- This is intentionally left blank -->
+                                            <span class='lehdar-label-half3'>XXXXXXXXXX</span>
                                         </td>
                                         <td style='border: none; padding: 0;'>
-                                            <span class='lehdar-label-half'>Another Address Below 5</span>
+                                            <span class='lehdar-label-half4'>XXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style='border: none; padding: 0;'>
+                                           
+                                        </td>
+                                        <td style='border: none; padding: 0;'>
+                                            <div class='lehdar-label-half4'>ASDAS</div>
                                         </td>
                                     </tr>
                                 </table>
@@ -392,7 +433,7 @@
                     <table class='inner-table'>
                         <td id='amir'>
                             <div class='title-text' style='text-align:left;'><div class='bg-color' style='display: inline-block;'>Amir</div></div>
-                            <span class='amir-label'>Amir Address Line 1</span>
+                            <span class='amir-label'>XXXXXXXXXXXXXXXXXXXXXXXXX</span>
                             <span class='amir-label'>Amir Address Line 2</span>
                             <span class='amir-label'>Amir Address Line 3</span>
                             <span class='amir-label'>Amir Address Line 4</span>
@@ -428,13 +469,14 @@
                                 <div class='title-text' style='text-align:left;'><div class='bg-color' style='display: inline-block;'>Amir Banka</div></div>
                             </td>
                             <td>
-                                <span class='amirbanka-label'>Amir Banka Address Line 1</span>
+                                <span class='amirbanka-label1'>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
                             </td>
                         </tr>
+                    </table>
+                    <table class='inner-table'>
                         <tr>
-                            <td></td>  <!-- This is intentionally left blank to align with the title above -->
                             <td>
-                                <span class='amirbanka-label'>Amir Banka Address Line 2</span>
+                                <span class='amirbanka-label2'>Amir Banka Address Line 2</span>
                             </td>
                         </tr>
                     </table>
@@ -468,8 +510,8 @@
                         </tr>
                         <!-- Boş veri satırları (gerekiyorsa) -->
                         <tr>
-                            <td><span class='amirbanka-label w-250'>Bilgi 1</span></td>
-                            <td><span class='amirbanka-label w-250'>Bilgi 2</span></td>
+                            <td><span class='referanslari-label'>Bilgi 1</span></td>
+                            <td><span class='referanslari-label'>Bilgi 2</span></td>
                         </tr>
                     </table>
                 </td>
@@ -630,7 +672,7 @@
                             <td style='border: none; margin: 0; padding: 0;'>
                                 <div class='checkbox checked'></div>
                             </td>
-                            <td style='border: none; margin: 0; padding: 0;'>
+                            <td style='border: none; margin: 5px 0; padding: 0;'>
                                 <div class='info'>
                                     <p class='bg-color' style='display: inline-block;'>Bankamız masraf ve komisyonları akreditif şartlarına göre tarafınıza aittir. Bu konuda itirazınız olup olmadığını amir bankadan yeni talimat almak üzere en geç 10 gün içinde Bankamıza bildiriniz.</p>
                                     <br>
@@ -648,13 +690,13 @@
                 <td>
                     <table class='inner-table'>
                         <tr>
-                            <td style='border: none; margin: 0; padding: 0;'>
+                            <td style='border: none; margin: 5px 0; padding: 0;'>
                                 <table class='no-border checkbox-container'>
                                     <tr>
-                                        <td style='border: none; margin: 0; padding: 0;'>
+                                        <td style='border: none; margin: 5px 0; padding: 0;'>
                                             <div class='checkbox'></div>
                                         </td>
-                                        <td style='border: none; margin: 0; padding: 0;'>
+                                        <td style='border: none; margin: 5px 0; padding: 0;'>
                                             <div class='info'>
                                                 <p class='bg-color' style='display: inline-block;'>Akreditifin imza teyidi / şifre doğruluğu saptanamadığından</p>
                                             </div>
@@ -742,7 +784,7 @@
                 </td>
             </tr>
         </table>
-
+        <br>
         <div style='text-align: left;'>
             <p class='fw-bold bg-color underlined inline-block'>Diğer Açıklamalar</p>
             <span class='extra-label'>Label 1</span>
@@ -752,22 +794,24 @@
             <p class='fw-bold bg-color inline-block'>İşbu akreditif 'Akreditiflere İlişkin Birörnek Usuller ve Uygulama Kuralları' 2007 revizyonu M.T.O. Yayın No:600'e tabidir.</p>
         </div>
         
-        <table class="inner-table">
+        <table class='inner-table'>
             <tr>
                 <td>
                     <div class='title-text' style='text-align:left; display: flex; width: 400px;'>
                         <div class='bg-color' style='display: inline-block;'>Ek: </div>
                         <span class='extra-label2' style='margin-left: 5px; margin-right: 5px;'>Label</span>
-                        sayfa Akreditif Metni
+                        <span class='bg-color'> sayfa Akreditif Metni</span>
                     </div>
                     <div class='title-line' style='margin-top: 10px;'></div>
                 </td>
                 <td>
-                    <div style='margin-left: auto;'>
-                        <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>Saygılarımla,</div></div>
-                        <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>ING Bank A.S.</div></div>
-                        <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>SANAL SUBESI</div></div>
-                        <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>ISTANBUL-TÜRKIYE</div></div>
+                    <div style='text-align: end;'>
+                        <div style='display: inline-block;'>
+                            <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>Saygılarımla,</div></div>
+                            <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>ING Bank A.S.</div></div>
+                            <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>SANAL SUBESI</div></div>
+                            <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>ISTANBUL-TÜRKIYE</div></div>
+                        </div>
                     </div>
                 </td>
             </tr>
