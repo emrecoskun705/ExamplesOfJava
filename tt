@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjusted PDF-like Table</title>
+    <style>
+        body {
+            height: 100%;
+            margin: 100px;
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            font-size: 16px; /* Smaller base font size */
+        }
+        
+        #main-table td {
+            border: none;
+        }
+
+        .pdf-container {
+            padding: 15px;  /* Reduced padding */
+            width: 100%;  /* Reduced width */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            padding: 5px; /* Further reduced padding */
+            vertical-align: top;
+        }
+        .address-label {
+            border: 1px solid black;
+            width: 500px; /* Increased width */
+            display: block;
+            margin-bottom: 2px;  /* Reduced margin */
+            padding: 1px;  /* Reduced padding */
+        }
+        .swift-label {
+            border: 1px solid black;
+            width: 220px; /* Width */
+            display: block;
+            margin-bottom: 2px;  
+            padding: 1px;
+        }
+        .faks-label {
+            border: 1px solid black;
+            width: 290px; /* Width */
+            display: block;
+            margin-bottom: 2px;  
+            padding: 1px;
+        }
+        .teleks-label {
+            border: 1px solid black;
+            width: 500px; /* Width */
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+        /* Adjustments as per your request */
+        .inner-table td {
+            border: none;
+            
+        }
+        .inner-table td:first-child {
+            width: 1%; /* Collapse to content width */
+            white-space: nowrap;
+            padding-right: 3px; /* Some padding to make it a bit wider than content */
+        }
+
+        #swift-td, #faks-label-text{
+            white-space: nowrap;
+            width: 1%;
+        }
+
+        .title-text {
+            font-weight: bold;
+            margin-bottom: 10px; /* Space between titles */
+            text-align: right;
+        }
+
+        .title-line {
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            margin: 5px 0; /* Margin top and bottom to separate lines */
+        }
+
+        .other-label {
+            border: 1px solid black;
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .lehdar-label, .amir-label, .ref-label {
+            border: 1px solid black;
+            width: 400px;
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .lehdar-label-half {
+            border: 1px solid black;
+            width: 190px; /* Reduced width for half labels */
+            display: inline-block; /* Instead of block */
+            margin-bottom: 2px;
+            padding: 1px;
+            vertical-align: top; /* To align at the top of the line */
+        }
+
+        .referansimiz-label {
+            border: 1px solid black;
+            margin-right: 4px; /* Small spacing between them */
+            padding: 1px 5px; /* Small padding around text */
+        }
+
+        .referansimiz-label-short {
+            width: 100px; /* adjust as needed */
+        }
+
+        .referansimiz-label-tiny {
+            width: 40px; /* adjust as needed */
+        }
+
+        .referansimiz-label-medium {
+            width: 150px; /* adjust as needed */
+        }
+
+        .referanslari-label {
+            border: 1px solid black;
+            display: block; /* Displayed as a block (full width) */
+            margin-bottom: 2px;
+            padding: 1px;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .border-right {
+            border-right: thick;
+        }
+
+        .ref-table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            height: 100%;
+        }
+
+        .ref-table td {
+            border: none;
+            border-top: none;
+            border-bottom: none;
+            padding-top: 0;
+        }
+
+        .ref-table .border-right {
+            border-right: 1px solid black;
+        }
+
+        .amirbanka-label {
+            border: 1px solid black;
+            width: 300px; /* Adjust width as needed */
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .w-200 {
+            width: 200px;
+        }
+
+        .w-250 {
+            width: 250px;
+        }
+
+        .w-300 {
+            width: 300px;
+        }
+
+        .w-400 {
+            width: 300px;
+        }
+
+        #amir-banka-id td {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        .remove-pad {
+            padding-bottom: 0;
+            padding-top: 0; 
+        }
+
+        .bg-color {
+            background-color: #e8f7bb;
+        }
+
+        .checkbox-container {
+            background-color: #fff;
+            padding-bottom: 5px;
+            display: flex;
+        }
+
+        .checkbox-container .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .checkbox-container .checkbox.checked {
+            background-color: #ffffff;
+        }
+
+        .checkbox-container .checkbox.checked::after {
+            content: "✔";
+            font-weight: bold;
+        }
+
+        .checkbox-container .info {
+            flex: 1;
+        }
+
+        .checkbox-container .info p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .checkbox-container .info .highlighted {
+            font-weight: bold;
+        }
+
+        .no-middle-table {
+            border-collapse: collapse;
+        }
+        .no-middle-table td {
+            border: 1px solid black;
+            padding: 10px 20px;
+        }
+        .no-middle-table td:first-child {
+            border-right: none;
+        }
+        .no-middle-table td:last-child {
+            border-left: none;
+        }
+
+        .checkbox-normal-table {
+            border-collapse: collapse;
+        }
+
+        .checkbox-normal-table td {
+            border: 1px solid black;
+            padding: 10px 20px;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .underlined {
+            text-decoration: underline;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .extra-label {
+            border: 1px solid black;
+            width: 80%;
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+
+        .extra-label2 {
+            border: 1px solid black;
+            width: 40px;
+            display: block;
+            margin-bottom: 2px;
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pdf-container">
+        <table id="main-table">
+            <tr>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td id="tarih-label bg-color"><div class="bg-color fw-bold">Tarih:</div></td>
+                            <td id="tarih-content">12/10/2023</td>
+                        </tr>
+                        <tr>
+                            <td id="address-label-text"><div class="bg-color fw-bold">Address:</div></td>
+                            <td>
+                                <span id="address1" class="address-label">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                                <span id="address2" class="address-label">Lorem ipsum dolor sit amet, consectetur ex.</span>
+                                <span id="address3" class="address-label">Lorem ipsum dolor sit amet, consectetur ex.</span>
+                                <span id="address4" class="address-label">Lorem ipsum dolor sit amet, consectetur ex.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="inner-table">
+                        <!-- Added Swift, Faks and Teleks row -->
+                        <tr>
+                            <td id="swift-label-text"><div class="bg-color fw-bold">Swift:</div></td>
+                            <td id="swift-td">
+                                <span id="swift1" class="swift-label">XXXXXXXXXXXXXXXXXXX</span>
+                            </td>
+                            <td id="faks-label-text"><div class="bg-color fw-bold">Faks:</div></td>
+                            <td>
+                                <span id="faks1" class="faks-label">XXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                            </td>
+                            
+                        </tr>
+                    </table>
+                    <table class="inner-table">
+                        <tr>
+                            <td id="teleks-label-text"><div class="bg-color fw-bold">Teleks:</div></td>
+                            <td>
+                                <span id="teleks1" class="teleks-label">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="title-content">
+                    <div class="title-text"><div class="bg-color" style="display: inline-block;">TAAHÜTLÜ</div></div>
+                    <div class="title-text"><div class="bg-color" style="display: inline-block;">İHRACAT AKREDİTİF</div></div>
+                    <div class="title-text"><div class="bg-color" style="display: inline-block;">Bildirim Formu</div></div>
+                    <div class="title-line"></div>
+                    <div class="title-line"></div>
+                    <span class="other-label">Example Address Here</span>
+                </td>
+            </tr>
+        </table>
+        <table id="main-table-2">
+            <tr>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td id="lehdar">
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Lehdar</div> </div>
+                                <span class="lehdar-label">Address Line 1</span>
+                                <span class="lehdar-label">Address Line 2</span>
+                                <table style="width:100%; border-collapse:collapse;">
+                                    <tr>
+                                        <td style="border: none; padding: 0; padding-right: 16px;">
+                                            <span class="lehdar-label-half">Address Line 3</span>
+                                        </td>
+                                        <td style="border: none; padding: 0;">
+                                            <span class="lehdar-label-half">Address Line 4</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: none; padding: 0;">
+                                            <span class="lehdar-label-half">Address Line 5</span>
+                                        </td>
+                                        <td style="border: none; padding: 0;">
+                                            <span class="lehdar-label-half">Additional Address Line</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: none; padding: 0;">
+                                            <!-- This is intentionally left blank -->
+                                        </td>
+                                        <td style="border: none; padding: 0;">
+                                            <span class="lehdar-label-half">Another Address Below 5</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <td id="amir">
+                            <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Amir</div></div>
+                            <span class="amir-label">Amir Address Line 1</span>
+                            <span class="amir-label">Amir Address Line 2</span>
+                            <span class="amir-label">Amir Address Line 3</span>
+                            <span class="amir-label">Amir Address Line 4</span>
+                        </td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0;">
+                    <table class="ref-table" style="border-right: black;">
+                        <tr id="referans-tr">
+                            <td class="border-right" style="width: 350px;">
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Referansımız</div></div>
+                                <table style="width:100%; border-collapse:collapse;">
+                                    <tr style="white-space: nowrap;">
+                                        <td ><span class="referansimiz-label referansimiz-label-short">Short</span></td>
+                                        <td><span class="referansimiz-label referansimiz-label-tiny">Tiny</span></td>
+                                        <td><span class="referansimiz-label referansimiz-label-medium">Medium Longer Text</span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width: 350px;">
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Referansları</div></div>
+                                <span class="referanslari-label">Example Address Here</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="amirbanka">
+                    <table id="amir-banka-id" class="inner-table">
+                        <tr>
+                            <td>
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Amir Banka</div></div>
+                            </td>
+                            <td>
+                                <span class="amirbanka-label">Amir Banka Address Line 1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>  <!-- This is intentionally left blank to align with the title above -->
+                            <td>
+                                <span class="amirbanka-label">Amir Banka Address Line 2</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="tutar-vade">
+                <td style="padding: 0;">
+                    <table class="ref-table" style="border-right: black;">
+                        <tr>
+                            <td class="border-right" style="width: 350px;">
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Tutar</div></div>
+                                <span class="referansimiz-label referansimiz-label-medium">Orta Büyüklük</span>
+                                <span class="referansimiz-label referansimiz-label-tiny" style="border: none;">Küçük</span>
+                            </td>
+                            <td style="width: 350px;">
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Tarih</div></div>
+                                <span class="referanslari-label">Orta Uzunluk</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="vade-table" class="ref-table border-right">
+                        <tr>
+                            <td>
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Akreditife Vadesi</div></div>
+                            </td>
+                            <td>
+                                <div class="title-text" style="text-align:left;"><div class="bg-color" style="display: inline-block;">Yükleme vadesi</div></div>
+                            </td>
+                        </tr>
+                        <!-- Boş veri satırları (gerekiyorsa) -->
+                        <tr>
+                            <td><span class="amirbanka-label w-250">Bilgi 1</span></td>
+                            <td><span class="amirbanka-label w-250">Bilgi 2</span></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: left;">
+            <p class="fw-bold bg-color" style="display: inline-block; margin-bottom: 0;">Sayın Müşterimiz,</p>
+            <br>
+            <p class="fw-bold bg-color" style="display: inline-block; margin-top: 0;">Yukarıda ayrıntıları yazılı akreditif, <span class="underlined">aşağıda(✔)</span> ile işaretlenmiş şartlar ve ek bilgiler çerçevesinde tarafınıza ihbar edilmektedir.</p>
+        </div>
+        <table class="no-middle-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Tüm ayrıntıları içeren</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">akreditif metninin bir sureti ekte gönderilmiştir.</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox checked"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Kısa açılış bilgilerini içeren(ön ihbar)</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">akreditif metninin bir sureti ekte gönderilmiştir.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="no-middle-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Akreditife 600 sayılı broşürün 8. maddesi</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">kapsamında teyidimiz eklenmiştir.</p>
+                        </div>
+                    </div>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Söz konusu akreditif 'teyitli' açılmış olup,yazılı teyit</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">talebinizin bankamıza ulaşmasını müteakip teyit talebiniz</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">işleme alınacaktır.</p>
+                            <br><br>
+                            <p class="bg-color" style="display: inline-block;">Teyit talebinizin yükleme yapılmadan önce tarafımıza</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">bildirilmesi gerekmektedir.</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox checked"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Akreditife teyidimiz eklenmemiştir. Sadece ihbar eden</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">banka olmamız nedeniyle ödeme ile ilgili</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">sorumluluğun akreditifi açan bankaya ait olduğunu ve</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">Bankamızın sorumluluğu bulunmadığını bildiririz.</p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="checkbox-container">
+                        <div class="checkbox checked"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Ayrıntılar beklenmektedir</p>
+                        </div>
+                    </div>
+                    <div class="checkbox-container">
+                        <div class="checkbox checked"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Teyide ilişkin yazışmalar devam emektedir.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="checkbox-normal-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Amir tarafından ödenmesi gereken masraf ve komisyonlarımız amir bankadan tahsil edilecektir.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="checkbox-normal-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Bankamız masraf ve komisyonları akreditif şartlarına göre tarafınıza aittir. Bu konuda itirazınız olup olmadığını amir bankadan yeni talimat almak üzere en geç 10 gün içinde Bankamıza bildiriniz.</p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">Belirtilen süre içinde cevap alamadığımız veya amir bankaca reddedilmesi halinde masraf ve komisyonlarımız, akreditif kullanılsın veya kullanılmasın, firmanızdan tahsil edilecektir.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="checkbox-normal-table">
+            <tr>
+                <td>
+                    <div style="display: flex;">
+                        <div class="checkbox-container" style="padding-right: 10px;">
+                            <div class="checkbox"></div>
+                            <div class="info">
+                                <p class="bg-color" style="display: inline-block;">Akreditifin imza teyidi / şifre doğruluğu saptanamadığından</p>
+                            </div>
+                        </div>
+                        <div class="checkbox-container">
+                            <div class="checkbox"></div>
+                            <div class="info">
+                                <p class="bg-color" style="display: inline-block;">Akreditife ilişkin bilgiler tam ve açık olmadığından</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bg-color fw-bold" style="display: inline-block; margin-top: 0; text-align: center;">İşbu bildirim, 600 sayılı broşürün 9/f maddesi uyarınca hiç bir sorumluluğumuz bulunmaksızın yapılmaktadır.</p>
+                </td>
+            </tr>
+        </table>
+
+        <table class="checkbox-normal-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Akreditif vadesi yurtdışında sona ereceğinden akreditif belgeleri ibraz vadesinden 10 gün önce eksiksiz olarak Şubemizde bulunacak şekilde gönderilmelidir.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="checkbox-normal-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Bankamız amir bankanın göndermiş olduğu teleks ve SWIFT mesajlarında yanlış ve eksik çekilişten sorumluluk kabul etmeyeceği gibi, teyidini aldıktan sonra metni değiştirme ve tamamlama hakkını da saklı tutar. </p>
+                            <br>
+                            <p class="bg-color" style="display: inline-block;">İşbu metindeki şartlar yanlış, eksik veya kabul edilemez bulunduğu takdirde derhal alıcınızla temasa geçerek, gerekli değişiklik talimatının amir banka aracılığıyla tarafımıza ulaştırılması sağlanmalıdır.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="checkbox-normal-table">
+            <tr>
+                <td>
+                    <div class="checkbox-container">
+                        <div class="checkbox"></div>
+                        <div class="info">
+                            <p class="bg-color" style="display: inline-block;">Bu akreditife göre firmanıza ödeme yapılmasının akreditif şartlarına tamamen uygun belgelerin ibrazına bağlı olduğunu hatırlatır, akreditifin kullanılışında şartlara uygun tam takım sevk belgelerinin ve her belgeden bir fazla suretin ibraz süresi içinde, ilişik talimat mektubu ile birlikte Şubemize gönderilmesini rica ederiz.</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div style="text-align: left;">
+            <p class="fw-bold bg-color underlined inline-block">Diğer Açıklamalar</p>
+            <span class="extra-label">Label 1</span>
+            <span class="extra-label">Label 2</span>
+            <span class="extra-label">Label 3</span>
+            <span class="extra-label">Label 4</span>
+            <p class="fw-bold bg-color inline-block">İşbu akreditif "Akreditiflere İlişkin Birörnek Usuller ve Uygulama Kuralları" 2007 revizyonu M.T.O. Yayın No:600'e tabidir.</p>
+        </div>
+        
+        <div style="display: flex;">
+            <div>
+                <div class="title-text" style="text-align:left; display: flex; width: 400px;">
+                    <div class="bg-color" style="display: inline-block;">Ek: </div>
+                    <span class="extra-label2" style="margin-left: 5px; margin-right: 5px;">Label</span>
+                    sayfa Akreditif Metni
+                </div>
+                <div class="title-line" style="margin-top: 10px;"></div>
+            </div>
+            <div style="margin-left: auto;">
+                <div class="title-text" style="text-align: center;"><div class="bg-color" style="display: inline-block;">Saygılarımla,</div></div>
+                <div class="title-text" style="text-align: center;"><div class="bg-color" style="display: inline-block;">ING Bank A.S.</div></div>
+                <div class="title-text" style="text-align: center;"><div style="display: inline-block;">SANAL SUBESI</div></div>
+                <div class="title-text" style="text-align: center;"><div style="display: inline-block;">ISTANBUL-TÜRKIYE</div></div>
+            </div>
+        </div>
+        <div class="fw-bold bg-color">
+            Ticaret Ünvanı: ING Bank Anonim Şirketi; Sicil Numarası: 269682; İşletme Merkezi: İstanbul (Merkez Adresi: Reşitpaşa Mahallesi, Eski Büyükdere Caddesi, No:8 34467 Sarıyer/İstanbul); İnternet Sitesi: www.ingbank.com.tr
+        </div>
+    </div>
+    
+
+</body>
+</html>
