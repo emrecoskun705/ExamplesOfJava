@@ -18,6 +18,15 @@
             border: none;
         }
 
+        .no-border {
+            border: none;
+        }
+
+        .no-border td {
+            border: none;
+            padding: 0;
+        }
+
         .pdf-container {
             padding: 15px;  /* Reduced padding */
             width: 100%;  /* Reduced width */
@@ -202,15 +211,13 @@
         .checkbox-container {
             background-color: #fff;
             padding-bottom: 5px;
-            display: flex;
+            margin-bottom: 5px;
         }
 
         .checkbox-container .checkbox {
             width: 20px;
             height: 20px;
             border: 1px solid #999;
-            margin-right: 20px;
-            display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -218,6 +225,7 @@
 
         .checkbox-container .checkbox.checked {
             background-color: #ffffff;
+            text-align: center;
         }
 
         .checkbox-container .checkbox.checked::after {
@@ -241,10 +249,7 @@
         .no-middle-table {
             border-collapse: collapse;
         }
-        .no-middle-table td {
-            border: 1px solid black;
-            padding: 10px 20px;
-        }
+
         .no-middle-table td:first-child {
             border-right: none;
         }
@@ -478,24 +483,36 @@
         <table class='no-middle-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Tüm ayrıntıları içeren</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>akreditif metninin bir sureti ekte gönderilmiştir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Tüm ayrıntıları içeren</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>akreditif metninin bir sureti ekte gönderilmiştir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox checked'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Kısa açılış bilgilerini içeren(ön ihbar)</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>akreditif metninin bir sureti ekte gönderilmiştir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Tüm ayrıntıları içeren</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>akreditif metninin bir sureti ekte gönderilmiştir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -503,55 +520,85 @@
         <table class='no-middle-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Akreditife 600 sayılı broşürün 8. maddesi</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>kapsamında teyidimiz eklenmiştir.</p>
-                        </div>
-                    </div>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Söz konusu akreditif 'teyitli' açılmış olup,yazılı teyit</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>talebinizin bankamıza ulaşmasını müteakip teyit talebiniz</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>işleme alınacaktır.</p>
-                            <br><br>
-                            <p class='bg-color' style='display: inline-block;'>Teyit talebinizin yükleme yapılmadan önce tarafımıza</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>bildirilmesi gerekmektedir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Akreditife 600 sayılı broşürün 8. maddesi</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>kapsamında teyidimiz eklenmiştir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Söz konusu akreditif 'teyitli' açılmış olup,yazılı teyit</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>talebinizin bankamıza ulaşmasını müteakip teyit talebiniz</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>işleme alınacaktır.</p>
+                                    <br><br>
+                                    <p class='bg-color' style='display: inline-block;'>Teyit talebinizin yükleme yapılmadan önce tarafımıza</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>bildirilmesi gerekmektedir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox checked'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Akreditife teyidimiz eklenmemiştir. Sadece ihbar eden</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>banka olmamız nedeniyle ödeme ile ilgili</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>sorumluluğun akreditifi açan bankaya ait olduğunu ve</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>Bankamızın sorumluluğu bulunmadığını bildiririz.</p>
-                            <br>
-                        </div>
-                    </div>
-                    <div class='checkbox-container'>
-                        <div class='checkbox checked'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Ayrıntılar beklenmektedir</p>
-                        </div>
-                    </div>
-                    <div class='checkbox-container'>
-                        <div class='checkbox checked'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Teyide ilişkin yazışmalar devam emektedir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Akreditife teyidimiz eklenmemiştir. Sadece ihbar eden</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>banka olmamız nedeniyle ödeme ile ilgili</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>sorumluluğun akreditifi açan bankaya ait olduğunu ve</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>Bankamızın sorumluluğu bulunmadığını bildiririz.</p>
+                                    <br>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Ayrıntılar beklenmektedir</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Teyide ilişkin yazışmalar devam emektedir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -559,12 +606,18 @@
         <table class='checkbox-normal-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Amir tarafından ödenmesi gereken masraf ve komisyonlarımız amir bankadan tahsil edilecektir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Amir tarafından ödenmesi gereken masraf ve komisyonlarımız amir bankadan tahsil edilecektir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -572,14 +625,20 @@
         <table class='checkbox-normal-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Bankamız masraf ve komisyonları akreditif şartlarına göre tarafınıza aittir. Bu konuda itirazınız olup olmadığını amir bankadan yeni talimat almak üzere en geç 10 gün içinde Bankamıza bildiriniz.</p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>Belirtilen süre içinde cevap alamadığımız veya amir bankaca reddedilmesi halinde masraf ve komisyonlarımız, akreditif kullanılsın veya kullanılmasın, firmanızdan tahsil edilecektir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Bankamız masraf ve komisyonları akreditif şartlarına göre tarafınıza aittir. Bu konuda itirazınız olup olmadığını amir bankadan yeni talimat almak üzere en geç 10 gün içinde Bankamıza bildiriniz.</p>
+                                    <br>
+                                    <p class='bg-color' style='display: inline-block;'>Belirtilen süre içinde cevap alamadığımız veya amir bankaca reddedilmesi halinde masraf ve komisyonlarımız, akreditif kullanılsın veya kullanılmasın, firmanızdan tahsil edilecektir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -587,20 +646,39 @@
         <table class='checkbox-normal-table'>
             <tr>
                 <td>
-                    <div style='display: flex;'>
-                        <div class='checkbox-container' style='padding-right: 10px;'>
-                            <div class='checkbox'></div>
-                            <div class='info'>
-                                <p class='bg-color' style='display: inline-block;'>Akreditifin imza teyidi / şifre doğruluğu saptanamadığından</p>
-                            </div>
-                        </div>
-                        <div class='checkbox-container'>
-                            <div class='checkbox'></div>
-                            <div class='info'>
-                                <p class='bg-color' style='display: inline-block;'>Akreditife ilişkin bilgiler tam ve açık olmadığından</p>
-                            </div>
-                        </div>
-                    </div>
+                    <table class='inner-table'>
+                        <tr>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <table class='no-border checkbox-container'>
+                                    <tr>
+                                        <td style='border: none; margin: 0; padding: 0;'>
+                                            <div class='checkbox'></div>
+                                        </td>
+                                        <td style='border: none; margin: 0; padding: 0;'>
+                                            <div class='info'>
+                                                <p class='bg-color' style='display: inline-block;'>Akreditifin imza teyidi / şifre doğruluğu saptanamadığından</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <table class='no-border checkbox-container'>
+                                    <tr>
+                                        <td style='border: none; margin: 0; padding: 0;'>
+                                            <div class='checkbox'></div>
+                                        </td>
+                                        <td style='border: none; margin: 0; padding: 0;'>
+                                            <div class='info'>
+                                                <p class='bg-color' style='display: inline-block;'>Akreditife ilişkin bilgiler tam ve açık olmadığından</p>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                     <p class='bg-color fw-bold' style='display: inline-block; margin-top: 0; text-align: center;'>İşbu bildirim, 600 sayılı broşürün 9/f maddesi uyarınca hiç bir sorumluluğumuz bulunmaksızın yapılmaktadır.</p>
                 </td>
             </tr>
@@ -609,12 +687,18 @@
         <table class='checkbox-normal-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Akreditif vadesi yurtdışında sona ereceğinden akreditif belgeleri ibraz vadesinden 10 gün önce eksiksiz olarak Şubemizde bulunacak şekilde gönderilmelidir.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='checkbox'></div>
+                            </td>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Akreditif vadesi yurtdışında sona ereceğinden akreditif belgeleri ibraz vadesinden 10 gün önce eksiksiz olarak Şubemizde bulunacak şekilde gönderilmelidir.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -622,14 +706,20 @@
         <table class='checkbox-normal-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Bankamız amir bankanın göndermiş olduğu teleks ve SWIFT mesajlarında yanlış ve eksik çekilişten sorumluluk kabul etmeyeceği gibi, teyidini aldıktan sonra metni değiştirme ve tamamlama hakkını da saklı tutar. </p>
-                            <br>
-                            <p class='bg-color' style='display: inline-block;'>İşbu metindeki şartlar yanlış, eksik veya kabul edilemez bulunduğu takdirde derhal alıcınızla temasa geçerek, gerekli değişiklik talimatının amir banka aracılığıyla tarafımıza ulaştırılması sağlanmalıdır.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='checkbox'></div>
+                            </td>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='info'>
+                                <p class='bg-color' style='display: inline-block;'>Bankamız amir bankanın göndermiş olduğu teleks ve SWIFT mesajlarında yanlış ve eksik çekilişten sorumluluk kabul etmeyeceği gibi, teyidini aldıktan sonra metni değiştirme ve tamamlama hakkını da saklı tutar. </p>
+                                <br>
+                                <p class='bg-color' style='display: inline-block;'>İşbu metindeki şartlar yanlış, eksik veya kabul edilemez bulunduğu takdirde derhal alıcınızla temasa geçerek, gerekli değişiklik talimatının amir banka aracılığıyla tarafımıza ulaştırılması sağlanmalıdır.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -637,12 +727,18 @@
         <table class='checkbox-normal-table'>
             <tr>
                 <td>
-                    <div class='checkbox-container'>
-                        <div class='checkbox'></div>
-                        <div class='info'>
-                            <p class='bg-color' style='display: inline-block;'>Bu akreditife göre firmanıza ödeme yapılmasının akreditif şartlarına tamamen uygun belgelerin ibrazına bağlı olduğunu hatırlatır, akreditifin kullanılışında şartlara uygun tam takım sevk belgelerinin ve her belgeden bir fazla suretin ibraz süresi içinde, ilişik talimat mektubu ile birlikte Şubemize gönderilmesini rica ederiz.</p>
-                        </div>
-                    </div>
+                    <table class='no-border checkbox-container'>
+                        <tr>
+                            <td style='border: none; margin: 0; padding: 0;'>
+                                <div class='checkbox checked'></div>
+                            </td>
+                            <td style='border: none; margin: 0; padding: 0;'    >
+                                <div class='info'>
+                                    <p class='bg-color' style='display: inline-block;'>Bu akreditife göre firmanıza ödeme yapılmasının akreditif şartlarına tamamen uygun belgelerin ibrazına bağlı olduğunu hatırlatır, akreditifin kullanılışında şartlara uygun tam takım sevk belgelerinin ve her belgeden bir fazla suretin ibraz süresi içinde, ilişik talimat mektubu ile birlikte Şubemize gönderilmesini rica ederiz.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
@@ -656,22 +752,26 @@
             <p class='fw-bold bg-color inline-block'>İşbu akreditif 'Akreditiflere İlişkin Birörnek Usuller ve Uygulama Kuralları' 2007 revizyonu M.T.O. Yayın No:600'e tabidir.</p>
         </div>
         
-        <div style='display: flex;'>
-            <div>
-                <div class='title-text' style='text-align:left; display: flex; width: 400px;'>
-                    <div class='bg-color' style='display: inline-block;'>Ek: </div>
-                    <span class='extra-label2' style='margin-left: 5px; margin-right: 5px;'>Label</span>
-                    sayfa Akreditif Metni
-                </div>
-                <div class='title-line' style='margin-top: 10px;'></div>
-            </div>
-            <div style='margin-left: auto;'>
-                <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>Saygılarımla,</div></div>
-                <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>ING Bank A.S.</div></div>
-                <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>SANAL SUBESI</div></div>
-                <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>ISTANBUL-TÜRKIYE</div></div>
-            </div>
-        </div>
+        <table class="inner-table">
+            <tr>
+                <td>
+                    <div class='title-text' style='text-align:left; display: flex; width: 400px;'>
+                        <div class='bg-color' style='display: inline-block;'>Ek: </div>
+                        <span class='extra-label2' style='margin-left: 5px; margin-right: 5px;'>Label</span>
+                        sayfa Akreditif Metni
+                    </div>
+                    <div class='title-line' style='margin-top: 10px;'></div>
+                </td>
+                <td>
+                    <div style='margin-left: auto;'>
+                        <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>Saygılarımla,</div></div>
+                        <div class='title-text' style='text-align: center;'><div class='bg-color' style='display: inline-block;'>ING Bank A.S.</div></div>
+                        <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>SANAL SUBESI</div></div>
+                        <div class='title-text' style='text-align: center;'><div style='display: inline-block;'>ISTANBUL-TÜRKIYE</div></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <div class='fw-bold bg-color'>
             Ticaret Ünvanı: ING Bank Anonim Şirketi; Sicil Numarası: 269682; İşletme Merkezi: İstanbul (Merkez Adresi: Reşitpaşa Mahallesi, Eski Büyükdere Caddesi, No:8 34467 Sarıyer/İstanbul); İnternet Sitesi: www.ingbank.com.tr
         </div>
